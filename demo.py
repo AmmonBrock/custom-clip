@@ -4,6 +4,7 @@ from analysis.download_models import download_trained_model_and_processor
 from analysis.projection import sort_image_folder
 from pathlib import Path
 import argparse
+import torch
 
 def parse_args():
     """Parse command line arguments.

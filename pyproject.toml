@@ -5,6 +5,12 @@ description = "Environment setup for training and evaluating our custom trained 
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
+    # Use version 2.2.2 on Intel Macs, and >=2.5.1 everywhere else
+    "numpy<2.0.0",
+    "torch>=2.5.1; sys_platform != 'darwin' or platform_machine != 'x86_64'",
+    "torch==2.2.2; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    "torchvision>=0.20.1; sys_platform != 'darwin' or platform_machine != 'x86_64'",
+    "torchvision==0.17.2; sys_platform == 'darwin' and platform_machine == 'x86_64'",
     "dacite>=1.9.2",
     "datasets>=4.3.0",
     "faiss-cpu>=1.12.0",
@@ -13,8 +19,7 @@ dependencies = [
     "pandas>=2.3.3",
     "scipy>=1.13.1",
     "tensorboard>=2.20.0",
-    "torch>=2.5.1",
-    "torchvision>=0.20.1",
+    
     "transformers>=4.57.1",
     "webdataset>=0.2.100",
 ]
@@ -25,8 +30,8 @@ url = "https://download.pytorch.org/whl/cu121" # Adjust CUDA version as needed
 explicit = true
 
 [tool.uv.sources]
-torch = [ { index = "pytorch-cuda" }, ]
-torchvision = [ { index = "pytorch-cuda" }, ]
+torch = [ { index = "pytorch-cuda", marker = "sys_platform == 'linux'"}, ]
+torchvision = [ { index = "pytorch-cuda", marker = "sys_platform == 'linux'" }, ]
 
 [dependency-groups]
 dev = [
