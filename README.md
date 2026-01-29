@@ -25,7 +25,7 @@ The demo script will automatically download our trained model and show you how t
 ├── demo.py              # Quick start demo (recommended entry point)
 ├── train/               # Training code and configuration
 ├── analysis/            # Model evaluation and CLIP comparison
-└── data/                # Data downloading, cleaning, and preprocessing
+└── data/                # Data downloading and organization
 ```
 
 ### Code Organization
