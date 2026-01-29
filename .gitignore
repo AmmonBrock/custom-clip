@@ -1,0 +1,6 @@
+*/pretrained_models/*
+*/pretrained_encoders/*
+*/__pycache__/*
+*.pyc
+*.tsv
+.venv

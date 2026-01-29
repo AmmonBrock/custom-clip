@@ -1,0 +1,34 @@
+[project]
+name = "custom-clip"
+version = "0.1.0"
+description = "Environment setup for training and evaluating our custom trained clip model"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "dacite>=1.9.2",
+    "datasets>=4.3.0",
+    "faiss-cpu>=1.12.0",
+    "h5py>=3.14.0",
+    "matplotlib>=3.9.4",
+    "pandas>=2.3.3",
+    "scipy>=1.13.1",
+    "tensorboard>=2.20.0",
+    "torch>=2.5.1",
+    "torchvision>=0.20.1",
+    "transformers>=4.57.1",
+    "webdataset>=0.2.100",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cuda"
+url = "https://download.pytorch.org/whl/cu121" # Adjust CUDA version as needed
+explicit = true
+
+[tool.uv.sources]
+torch = [ { index = "pytorch-cuda" }, ]
+torchvision = [ { index = "pytorch-cuda" }, ]
+
+[dependency-groups]
+dev = [
+    "ipython>=8.18.1",
+]

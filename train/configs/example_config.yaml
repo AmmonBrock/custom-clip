@@ -1,0 +1,74 @@
+
+# Data configuration
+data:
+  train_shard_pattern: "webdataset_shards/shard-{000000..000059}.tar"
+  val_shard_pattern: "webdataset_shards/shard-{000060..000065}.tar"
+  batch_size: 32
+  num_workers: 4
+  image_size: 224
+  text_max_length: 77
+  shuffle: true
+  pin_memory: true
+  prefetch_factor: 2
+  truncate_data_at: -1  
+
+# Model configuration
+model:
+  vision_model: "vit"
+  text_model: "bert"
+  embed_dim: 512
+  vision_layers: 12
+  vision_width: 768
+  vision_patch_size: 32
+  context_length: 77
+  vocab_size: 49408
+  transformer_width: 512
+  transformer_heads: 8
+  transformer_layers: 12
+
+# Optimizer configuration
+optimizer:
+  name: "AdamW"
+  lr: 0.000005
+  weight_decay: 0.01
+  betas: [0.9, 0.98]
+  eps: 0.000001
+
+# Scheduler configuration
+scheduler:
+  name: "cosine"
+  warmup_steps: 2000
+  max_steps: 100000
+  min_lr_ratio: 0.0
+
+# Training configuration
+train:
+  epochs: 256
+  save_frequency: 1 
+  eval_frequency: 1
+  gradient_clip_norm: 1.0
+  mixed_precision: true
+  accumulate_grad_batches: 1
+  temperature: 0.07
+
+# Logging configuration
+logging:
+  experiment_name: "clip_experiment"
+  log_frequency: 100
+  use_wandb: false
+  wandb_project: null
+  run_dir: "train_run_02"
+  stderr_log: false
+  stdout_log: false
+  do_tqdm: false
+
+# Checkpoint configuration
+checkpoint:
+  save_sub_dir: "checkpoints"
+  resume_from: null
+  save_top_k: 3
+  monitor_metric: "val_loss"
+
+# Global settings
+seed: 42
+device: "cuda"
