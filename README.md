@@ -47,6 +47,10 @@ The `train/`, `analysis/`, and `data/` directories are provided **for reference 
 
 **If you want to understand our methodology**, the training and analysis code provides full implementation details.
 
+## Technical Report
+
+For a detailed explanation of our methodology, architecture decisions, training process, and evaluation results, see our [technical writeup](custom_clip_report.pdf).
+
 ## Model Details
 
 - **Architecture**: Pretrained text encoder (BERT) + pretrained image encoder (ViT) aligned via contrastive learning
