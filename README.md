@@ -33,7 +33,7 @@ The demo script will automatically download our trained model and show you how t
 - **`demo.py`**: Fully self-contained demo showing how to download and use our trained model. Start here!
 - **`train/`**: Code used for training the model on 1.2M image-caption pairs using distributed compute
 - **`analysis/`**: Evaluation scripts and comparisons against the original CLIP model
-- **`data/`**: Pipeline for downloading, cleaning, and organizing training data into WebDataset format
+- **`data/`**: Data downloading and organization
 
 ## Important Note
 
@@ -43,13 +43,9 @@ The `train/`, `analysis/`, and `data/` directories are provided **for reference 
 - University supercomputer resources for distributed training
 - Conversion to WebDataset format for efficient data loading
 
-**If you want to use our model**, stick with `demo.py` - it shows how to download the model from huggingface and extract
+**If you want to use our model**, stick with `demo.py` - it shows how the model can be downloaded and used for an application
 
-**If you want to understand our methodology**, the training and analysis code provides full implementation details.
-
-## Technical Report
-
-For a detailed explanation of our methodology, architecture decisions, training process, and evaluation results, see our [technical writeup](custom_clip_report.pdf).
+**If you want to understand our methodology**, see our [technical writeup](custom_clip_report.pdf) and view the code for specific implementation details.
 
 ## Model Details
 
